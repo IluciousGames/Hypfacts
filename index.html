@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hypixel Facts</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Arial", sans-serif;
+        background: #101820;
+        color: white;
+        overflow-x: hidden;
+      }
+      header {
+        background: linear-gradient(135deg, #ffb100, #ff7900);
+        padding: 50px;
+        text-align: center;
+        animation: fadeIn 1s ease-in-out forwards;
+      }
+      header h1 {
+        margin: 0;
+        font-size: 3rem;
+      }
+      header p {
+        margin: 10px 0 0;
+        font-size: 1.2rem;
+      }
+      .content {
+        padding: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+      }
+      .fact {
+        background: #1e1e2e;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        opacity: 0;
+        transform: translateY(50px);
+        animation: fadeUp 0.8s ease-in-out forwards;
+      }
+      .fact h2 {
+        margin-top: 0;
+        color: #ffb100;
+      }
+      .fact p {
+        margin: 0;
+        font-size: 1rem;
+      }
+      footer {
+        text-align: center;
+        padding: 20px;
+        background: #1e1e2e;
+        position: relative;
+      }
+      footer p {
+        margin: 0;
+      }
+      /* Animations */
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes fadeUp {
+        0% {
+          opacity: 0;
+          transform: translateY(50px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>100 Hypixel Facts</h1>
+      <p>
+        Discover the secrets and fun facts behind one of Minecraft's greatest
+        servers.
+      </p>
+    </header>
+    <div class="content">
+      <!-- Generate 100 facts -->
+      <script>
+        const facts = [
+          "Hypixel was founded in 2013 and quickly became one of the largest Minecraft servers.",
+          "The Hypixel server was originally built around custom adventure maps.",
+          "SkyBlock is one of Hypixel's most popular game modes, attracting millions of players.",
+          "The server broke the Guinness World Record for most concurrent players on a Minecraft server.",
+          "Hypixel features over 40 unique mini-games, including Bed Wars, SkyWars, and Build Battle.",
+          "Bed Wars has its roots in a game called Egg Wars, but Hypixel's version became the most popular.",
+          "The Hypixel development team is made up of talented coders from around the world.",
+          "SkyBlock on Hypixel is not traditional SkyBlock but rather an MMORPG-style experience.",
+          "Murder Mystery on Hypixel was inspired by popular party games like Werewolf and Mafia.",
+          "The Hypixel Network supports Minecraft Java Edition only.",
+          // Add more facts here up to 100
+        ];
+
+        // Populate facts
+        const contentDiv = document.querySelector(".content");
+        for (let i = 0; i < 100; i++) {
+          const factDiv = document.createElement("div");
+          factDiv.className = "fact";
+          factDiv.style.animationDelay = `${i * 0.1}s`; // Delay each fact's animation slightly
+          factDiv.innerHTML = `
+                    <h2>Fact ${i + 1}</h2>
+                    <p>${facts[i % facts.length]}</p>
+                `;
+          contentDiv.appendChild(factDiv);
+        }
+      </script>
+    </div>
+    <footer>
+      <p>&copy; 2024 Hypixel Facts</p>
+    </footer>
+  </body>
+</html>
